@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>JIRO AI — Intelligence Without Boundaries</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.10.0/styles/github-dark.min.css">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="ambient a1"></div><div class="ambient a2"></div>
+<div class="app">
+<aside class="sidebar" id="sidebar">
+  <div class="brand"><div class="brand-mark">J</div><div><b>JIRO AI</b><small>INTELLIGENCE ENGINE</small></div></div>
+  <button class="new-chat" id="newChat"><span>＋</span> New chat</button>
+  <div class="side-label">WORKSPACE</div>
+  <button class="nav-item active" data-view="chat"><span>◫</span> Chat</button>
+  <button class="nav-item" data-view="lab"><span>⌘</span> AI Lab</button>
+  <button class="nav-item" data-view="models"><span>▧</span> Model manager</button>
+  <div class="side-label history-label">RECENT CONVERSATIONS</div>
+  <div id="history" class="history"></div>
+  <div class="sidebar-bottom"><div class="engine-dot"></div><div><b id="engineState">Engine not loaded</b><small id="engineName">Local inference</small></div><button id="settingsBtn" title="Settings">⚙</button></div>
+</aside>
+<main class="main">
+<header class="topbar"><button class="mobile-menu" id="menuBtn">☰</button><div class="crumb">JIRO AI <span>/</span> <b id="pageName">Chat</b></div><div class="top-actions"><span class="privacy"><i></i> LOCAL ENGINE</span></div></header>
+<section id="chatView" class="view chat-view">
+  <div id="messages" class="messages">
+    <div class="welcome" id="welcome"><div class="welcome-symbol">J</div><p class="eyebrow">YOUR PRIVATE AI WORKSPACE</p><h1>Intelligence,<br><em>without boundaries.</em></h1><p class="welcome-copy">A self-hosted AI assistant powered by open-source models.</p>
+    <div class="suggestions"><button data-prompt="Jelaskan konsep machine learning dengan contoh sederhana.">Explain a concept <span>↗</span></button><button data-prompt="Bantu saya debug kode Python berikut: ">Debug code <span>↗</span></button><button data-prompt="Buatkan rencana belajar pemrograman selama 30 hari.">Create a learning plan <span>↗</span></button></div></div>
+  </div>
+  <div class="composer-wrap"><div class="composer"><textarea id="prompt" rows="1" placeholder="Message JIRO AI..."></textarea><div class="composer-foot"><div class="composer-left"><button id="attachBtn" title="Upload document">＋</button><input type="file" id="fileInput" accept=".txt,.pdf,.docx" hidden><span id="fileState">Local model · No external AI API</span></div><div class="composer-right"><select id="maxTokens"><option value="256">256 tokens</option><option value="384" selected>384 tokens</option><option value="768">768 tokens</option></select><button class="send" id="sendBtn" title="Send">↑</button><button class="send stop" id="stopBtn" hidden title="Stop">■</button></div></div></div><p class="disclaimer">JIRO AI can make mistakes. Verify important information.</p></div>
+</section>
+<section id="labView" class="view panel-view" hidden><div class="panel-heading"><p class="eyebrow">SYSTEM INTELLIGENCE</p><h1>AI Lab</h1><p>Live telemetry from the JIRO AI host.</p></div><div class="metric-grid"><article class="metric"><span>CPU USAGE</span><strong id="cpuMetric">—</strong><small>Host processor</small></article><article class="metric"><span>RAM USAGE</span><strong id="ramMetric">—</strong><small id="ramDetail">Host memory</small></article><article class="metric"><span>PROCESS MEMORY</span><strong id="procMetric">—</strong><small>JIRO backend RSS</small></article><article class="metric"><span>MODEL STATUS</span><strong id="modelMetric">Offline</strong><small id="modelDetail">Not loaded</small></article></div><div class="glass-panel"><h3>Inference engine</h3><p id="labEngine">Checking backend…</p><button class="primary-btn" id="loadModel">Load model</button><button class="secondary-btn" id="unloadModel">Unload model</button></div></section>
+<section id="modelsView" class="view panel-view" hidden><div class="panel-heading"><p class="eyebrow">LOCAL MODEL CONTROL</p><h1>Model manager</h1><p>Manage the model configured on your own host.</p></div><div class="glass-panel"><div class="model-row"><div class="model-icon">AI</div><div><h3 id="modelName">Configured model</h3><p id="modelEngine">Engine details loading…</p></div><span class="status-pill" id="modelStatus">NOT LOADED</span></div><p class="hint">Change model settings in the backend .env file, then restart the server. Model files are not bundled in this ZIP.</p><button class="primary-btn" id="loadModel2">Load configured model</button><button class="secondary-btn" id="unloadModel2">Unload</button></div></section>
+</main></div>
+<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script><script src="https://cdn.jsdelivr.net/npm/dompurify@3.1.6/dist/purify.min.js"></script><script src="https://cdn.jsdelivr.net/npm/highlight.js@11.10.0/lib/highlight.min.js"></script><script src="app.js"></script>
+</body></html>
